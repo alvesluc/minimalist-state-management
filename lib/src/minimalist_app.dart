@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'timer/pages/timer_page/timer_page.dart';
+
 class MinimalistApp extends StatelessWidget {
   const MinimalistApp({Key? key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class MinimalistApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: const TimerPage(),
     );
   }
 }
