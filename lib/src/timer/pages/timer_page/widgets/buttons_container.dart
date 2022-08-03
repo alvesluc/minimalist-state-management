@@ -14,7 +14,7 @@ class ButtonsContainer extends StatelessWidget {
     final controller = getIt.get<TimerPageController>();
 
     return ValueListenableBuilder(
-      valueListenable: controller.buttonNotifier,
+      valueListenable: controller.buttonStateNotifier,
       builder: (context, state, _) {
         return Row(
           children: [

@@ -1,17 +1,18 @@
 import 'package:flutter/foundation.dart';
+import 'package:minimalist/src/timer/pages/timer_page/notifiers/button_notifier.dart';
 
 import 'notifiers/time_left_notifier.dart';
 
 class TimerPageController {
   final timeLeftNotifier = TimeLeftNotifier();
-  final buttonNotifier = ValueNotifier<ButtonState>(ButtonState.initial);
+  final buttonStateNotifier = ButtonNotifier();
 
   void initTimerState() {
     timeLeftNotifier.initialize();
   }
 
   void start() {
-    if (buttonNotifier.value == ButtonState.paused) {
+    if (buttonStateNotifier.value == ButtonState.paused) {
       _unpauseTimer();
     } else {
       _startTimer();
@@ -20,26 +21,26 @@ class TimerPageController {
 
   void _unpauseTimer() {
     timeLeftNotifier.unpause();
-    buttonNotifier.value = ButtonState.started;
+    buttonStateNotifier.setStarted();
   }
 
   void _startTimer() {
     timeLeftNotifier.start(onDone: _finishTimer);
-    buttonNotifier.value = ButtonState.started;
+    buttonStateNotifier.setStarted();
   }
 
   void _finishTimer() {
-    buttonNotifier.value = ButtonState.finished;
+    buttonStateNotifier.setFinished();
   }
 
   void pause() {
     timeLeftNotifier.pause();
-    buttonNotifier.value = ButtonState.paused;
+    buttonStateNotifier.setPaused();
   }
 
   void reset() {
     timeLeftNotifier.reset();
-    buttonNotifier.value = ButtonState.initial;
+    buttonStateNotifier.setInitial();
   }
 
   void dispose() {
