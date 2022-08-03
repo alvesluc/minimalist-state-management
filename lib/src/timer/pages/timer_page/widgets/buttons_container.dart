@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../services/service_locator.dart';
+import '../notifiers/button_notifier.dart';
 import '../timer_page_controller.dart';
 import 'pause_button.dart';
 import 'reset_button.dart';
@@ -23,17 +24,17 @@ class ButtonsContainer extends StatelessWidget {
             ],
             if (state == ButtonState.started) ...const [
               PauseButton(),
-              SizedBox(height: 20),
+              SizedBox(width: 20),
               ResetButton(),
             ],
             if (state == ButtonState.paused) ...const [
               StartButton(),
-              SizedBox(height: 20),
+              SizedBox(width: 20),
               ResetButton(),
             ],
             if (state == ButtonState.finished) ...const [
               ResetButton(),
-            ]
+            ],
           ],
         );
       },

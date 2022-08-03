@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:minimalist/src/timer/pages/timer_page/notifiers/button_notifier.dart';
-
+import 'notifiers/button_notifier.dart';
 import 'notifiers/time_left_notifier.dart';
 
 class TimerPageController {
@@ -46,11 +44,4 @@ class TimerPageController {
   void dispose() {
     timeLeftNotifier.dispose();
   }
-}
-
-enum ButtonState {
-  initial,
-  started,
-  paused,
-  finished,
 }

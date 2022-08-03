@@ -22,9 +22,7 @@ class TimeLeftNotifier extends ValueNotifier<String> {
 
   void start({required Function onDone}) {
     _tickerSubscription?.cancel();
-    // TODO: Remove is not needed
-    _updateTimeLeft(_currentTimeLeft);
-
+    
     _tickerSubscription = _ticker.tick(ticks: _currentTimeLeft).listen(
       (duration) {
         _updateTimeLeft(duration);

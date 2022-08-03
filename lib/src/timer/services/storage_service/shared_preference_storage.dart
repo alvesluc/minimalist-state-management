@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'storage_service.dart';
 
-class SharedPreferenceStorage implements StorageService {
+class SharedPreferencesStorage implements StorageService {
   static const _timeLeftKey = "timeLeft";
 
   @override
